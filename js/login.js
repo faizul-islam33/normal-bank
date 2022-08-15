@@ -15,9 +15,9 @@ document.getElementById('btn-submit').addEventListener('click', function () {
     // DANGER: Do not verify email password on the client side
     // step-4: verify email and password
     if (email === 'fair@gmail.com' && password === 'secret') {
-        console.log('valid user');
+        window.location.href = 'bank.html';
     } else {
-        console.log('invalid user');
+        alert('Tui password vule gechos, toke ami tejjo sontan ghosona korlam.');
     }
 
 
