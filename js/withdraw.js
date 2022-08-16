@@ -26,6 +26,16 @@ document.getElementById('btn-withdraw').addEventListener('click', function () {
     const newWithdrawAmount = parseFloat(newWithdrawAmountString);
 
 
+    // step-7:
+    withdrawField.value = '';
+
+
+    if (isNaN(newWithdrawAmount)) {
+        alert('Please provide a valid number');
+        return;
+    }
+
+
     // step-3
     const withdrawTotalElement = document.getElementById('withdraw-total');
     const previousWithdrawTotalString = withdrawTotalElement.innerText;
@@ -33,10 +43,6 @@ document.getElementById('btn-withdraw').addEventListener('click', function () {
     const previousWithdrawTotal = parseFloat(previousWithdrawTotalString);
 
 
-    // step-4: 
-    const currentWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
-
-    withdrawTotalElement.innerText = currentWithdrawTotal;
 
 
     // step-5: 
@@ -45,14 +51,30 @@ document.getElementById('btn-withdraw').addEventListener('click', function () {
     const previousBalanceTotal = parseFloat(previusBalanceTotalString);
 
 
+
+
+
+    if (newWithdrawAmount > previousBalanceTotal) {
+        alert('Baap er bank e eto taka nai');
+        return;
+    }
+
+
+
+    // step-4: 
+    const currentWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
+
+    withdrawTotalElement.innerText = currentWithdrawTotal;
+
+
+
     // step-6:
     const newBalanceTotal = previousBalanceTotal - newWithdrawAmount;
 
     balanceTotalElement.innerText = newBalanceTotal;
 
 
-    // step-7:
-    withdrawField.value = '';
+
 
 })
 
